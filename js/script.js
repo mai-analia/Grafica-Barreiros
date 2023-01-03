@@ -1,4 +1,4 @@
-////segunda preentrega
+/* ////segunda preentrega
 
 //registrarse
 let nombreUsuario=prompt ("Crear nombre de usuario");
@@ -71,7 +71,7 @@ newCarrito.push (buscar);
 alert (i++);
 }
  
-console.log(newCarrito); 
+console.log(newCarrito);  */
 
 
 
