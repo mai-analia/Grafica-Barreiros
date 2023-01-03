@@ -91,9 +91,9 @@ contenedor.innerHTML= `
 <span>Precio: $ ${boxs.precio}</span>
 `;
 
-//agrego a body
+/* //agrego a body
 document.body.appendChild(contenedor);
-console.log(boxs);
+console.log(boxs); */
 
 //formulario
 let rellenarFormulario = document.getElementById("formulario");
