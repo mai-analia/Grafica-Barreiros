@@ -75,6 +75,30 @@ console.log(newCarrito);
 
 
 
+//TERCERA PREENTREGA (DOM- EVENTOS - STORAGE - JSON)
+let box= {ID: 1, nombre: "box torta alta", precio: 120};
+let productos = `ID: ${box.ID}, Nombre: ${box.nombre} - Precio: ${box.precio} `;
+console.log(productos);
+
+//plantilla literal con innerHTML
+let boxs= {ID: 1, nombre: "box torta alta", precio: 120};
+
+let contenedor=document.createElement ("div");
+
+contenedor.innerHTML= `
+<h5>ID: ${boxs.ID}</h5>
+<p> Producto: ${boxs.nombre}</p>
+<span>Precio: $ ${boxs.precio}</span>
+`;
+
+//agrego a body
+document.body.appendChild(contenedor);
+console.log(boxs);
+
+//formulario
+let rellenarFormulario = document.getElementById("formulario");
+rellenarFormulario.addEventListener ("submit", validar);
+
 
 
 
