@@ -18,30 +18,87 @@ function inner() {
 
 btnIngreso.addEventListener ("click", function (e)  {
     inner();
-    localStorage.setItem("usuario", usuario.value)
-    localStorage.setItem("contraseña", contraseña.value)
 })
 
 
-//productos: cambiar imagen cuando pasa el mousse
 
-box=document.querySelector(".box-o-pan-dulce")
+//JSON Y STORAGE: carrito de compras
+let opcionesProductos=[
+    {
+        id:1,
+        producto: "Box pan dulce",
+        precio: 130,
+    },
+    {
+        id:2,
+        producto: "Box cupcakes sin interior",
+        precio: 155,
+    },
+    {
+        id:3,
+        producto: "Bombonera Rosa",
+        precio: 70,
+    },
+    {
+        id:4,
+        producto: "Box torta alta",
+        precio: 155,
+    },
+    {
+        id:5,
+        producto: "Bombonera oro",
+        precio: 100,
+    },
+    {
+        id:6,
+        producto: "Box multiuso",
+        precio: 152,
+    },
+    {
+        id:7,
+        producto: "Box cupcakes x6",
+        precio: 175,
+    },
+    {
+        id:8,
+        producto: "Box macarrons",
+        precio: 95,
+    },
+    {
+        id:9,
+        producto: "Box valijita",
+        precio: 140,
+    },
+]
 
-box.onmouseover=()=>{
-    box.style.backgroundImage='url("../recursos/logo.jpeg")';
-}
+let opcionesProductosStg=JSON.stringify (opcionesProductos);
+
+//almacena objeto opciones productos en el local storage
+localStorage.setItem ("objetoProductos", opcionesProductosStg);
+
+//recuperando el objeto opciones productos del local storage
+let datosStorage=localStorage.setItem("objetoProductos");
+
+let objetoProductosConv=JSON.parse (datosStorage);
 
 
-//carrito de compras
-const cards= document.querySelectorAll(".card")
 
 
 
 
 //contacto prevent default
+const form2=document.getElementById("formulario2")
+form2.addEventListener ("enviar", validacion)
+function validacion (e) {
+    e.preventDefault()
+}
 
 const btnEnviar=document.getElementById("btn-enviar")
 
 btnEnviar.onclick=()=>{
     preventDefault()
 };
+
+msj.addEventListener ("click", function (e)  {
+    msjParaEnviar();
+}) 
