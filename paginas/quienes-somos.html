@@ -44,17 +44,6 @@
               <a class="nav-link" href="./contacto.html">Contacto</a>
             </li>
           </ul>
-          <form class="d-flex" role="search">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Buscar"
-            />
-            <button class="btn btn-outline-success" type="submit">
-              Buscar
-            </button>
-          </form>
         </div>
       </div>
     </nav>
@@ -64,6 +53,30 @@
       packaging. Nosotros llevamos a cabo la fabricación venta y tercerización
       de productos
     </p>
-    <img src="../recursos/logo.jpeg">
+    <h2>Registro</h2>
+    <form id="formulario">
+      <div class="mb-3">
+        <label for="exampleInputUsuario1" id="usuario" class="form-label">Usuario</label>
+        <input type="usuario" class="form-control" id="exampleInputUsuario1" aria-describedby="Usuario">
+        <div class="valid-feedback"> 
+          Looks good!
+        </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" id="contraseña" class="form-label">Contraseña</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" required>
+      </div>
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" required >
+        <label class="form-check-label" for="exampleCheck1">Recordarme</label>
+      </div>
+      <button id="ingreso" type="submit" class="btn btn-danger">Ingresar ✔</button>
+    </form>
+    <div id="infoDeIngreso"></div>
+    <div>
+      <img src="../recursos/logo.jpeg">
+    </div>
   </body>
 </html>

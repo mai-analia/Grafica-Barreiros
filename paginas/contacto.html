@@ -31,10 +31,6 @@
                   <a class="nav-link" href="#">Contacto</a>
                 </li>
               </ul>
-              <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Buscar">
-                <button class="btn btn-outline-success" type="submit">Buscar</button>
-              </form>
             </div>
           </div>
       </nav>
@@ -44,19 +40,19 @@
     <form id="formulario" method="post">
         <div class="mb-3 col-7">
           <label for="exampleFormControlInput1" class="form-label">Nombre</label>
-          <input type="nombre" class="form-control" id="exampleFormControlInput1" placeholder="Nombre">
+          <input type="nombre" class="form-control p-3 bg-danger bg-opacity-10 border border-danger border-start-0 rounded-end" id="exampleFormControlInput1" placeholder="Nombre">
         </div>
         <div class="mb-3 col-7">
           <label for="exampleFormControlInput1" class="form-label">Email </label>
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email">
+          <input type="email" class="form-control p-3 bg-danger bg-opacity-10 border border-danger border-start-0 rounded-end" id="exampleFormControlInput1" placeholder="Email">
         </div>
         <div class="mb-3 col-7">
           <label for="exampleFormControlTextarea1" class="form-label"> Deja tu comentario</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          <textarea class="form-control p-3 bg-danger bg-opacity-10 border border-danger border-start-0 rounded-end" id="exampleFormControlTextarea1" rows="3"></textarea>
         </div>
         <div class="botones">
-          <input class="form__botones" type="submit" value="enviar">  <!-- enviar formulario --> 
-          <input class="form__botones" type="reset">  <!-- limpiar formulario -->
+          <input id="btn-enviar" class="text-bg-danger p-3" type="submit" value="enviar👉">  <!-- enviar formulario --> 
+          <input id="btn-reset" class="text-bg-warning p-3" type="reset">  <!-- limpiar formulario -->
         </div>
       </form>
 </main>
