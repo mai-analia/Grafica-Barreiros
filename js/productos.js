@@ -5,6 +5,7 @@ let opcionesProductos=[
         producto: "Box pan dulce",
         cantidad: 1,
         precio: 130,
+        medidas:"14x14x17",
         img: "../recursos/box-o-pan-dulce.jpeg",
     },
     {
@@ -12,6 +13,7 @@ let opcionesProductos=[
         producto: "Box cupcakes sin interior",
         cantidad: 1,
         precio: 155,
+        medidas:"27x17x10",
         img: "../recursos/cupcakes-sin-interior.jpeg",
     },
     {
@@ -19,6 +21,7 @@ let opcionesProductos=[
         producto: "Bombonera Rosa",
         cantidad: 1,
         precio: 70,
+        medidas:"18,5x11,5x4",
         img: "../recursos/bombonera-rosa.jpeg",
     },
     {
@@ -26,6 +29,7 @@ let opcionesProductos=[
         producto: "Box torta alta",
         cantidad: 1,
         precio: 155,
+        medidas:"30x30x30",
         img: "../recursos/torta-alta.jpeg",
     },
     {
@@ -33,6 +37,7 @@ let opcionesProductos=[
         producto: "Bombonera oro",
         cantidad: 1,
         precio: 100,
+        medidas:"15,5x8,5x3",
         img: "../recursos/bombonera-oro.jpeg",
     },
     {
@@ -40,6 +45,7 @@ let opcionesProductos=[
         producto: "Box multiuso",
         cantidad: 1,
         precio: 152,
+        medidas:"30x20x7,5",
         img: "../recursos/multiuso.jpeg",
     },
     {
@@ -47,6 +53,7 @@ let opcionesProductos=[
         producto: "Box cupcakes x6",
         cantidad: 1,
         precio: 175,
+        medidas:"27x17x10",
         img: "../recursos/cupcakes.jpeg",
     },
     {
@@ -54,6 +61,7 @@ let opcionesProductos=[
         producto: "Box macarrons",
         cantidad: 1,
         precio: 95,
+        medidas:"5x5x21",
         img: "../recursos/macarrons.jpeg",
     },
     {
@@ -61,57 +69,15 @@ let opcionesProductos=[
         producto: "Box valijita",
         cantidad: 1,
         precio: 140,
+        medidas:"17x15,5x9,5",
         img: "../recursos/valijita.jpeg",
     },
 ]
 
 let contenedor= document.querySelector('#contenedor'); 
 
-/* //agregado
-let carrito = [];
-
-const contenedor = document.querySelector("#contenedor");
-const carritoContenedor = document.querySelector("#carritoContenedor");
-const vaciarCarrito = document.querySelector("#vaciarCarrito");
-const precioTotal = document.querySelector("#precioTotal");
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
-  mostrarCarrito(); 
-
-});
-
-vaciarCarrito.addEventListener("click", () => {
-  carrito.length = [];
-  mostrarCarrito();
-});
-
-procesarCompra.addEventListener("click", () => {
-  if (carrito.length === 0) {
-    Swal.fire({
-      title: "¡Tu carrito está vacio!",
-      text: "Compra algo para continuar con la compra",
-      icon: "error",
-      confirmButtonText: "Aceptar",
-    });
-  } else {
-    location.href = "compra.html";
-    procesarPedido()
-
-  }
-});
-
-
-//fin */
-
-
-
-
-
 opcionesProductos.forEach((prod)=>{
-    const {id, producto,cantidad, precio, img}=prod //desestructuracion
+    const {id, producto,cantidad, medidas, precio, img}=prod //desestructuracion
     contenedor.innerHTML += `
    <div class="card mt-3" style="width: 18rem;">
    <img class="card-img-top mt-2" src="${img}" alt="Card image cap">
@@ -119,115 +85,32 @@ opcionesProductos.forEach((prod)=>{
      <h5 class="card-title">${producto}</h5>
      <p class="card-text">Precio: ${precio}</p>
      <p class="card-text">Cantidad: ${cantidad}</p>
-     <button class="btn btn-primary" onclick="agregarProducto(${id})">Comprar Producto</button>
+     <p class="card-text">Medidas: ${medidas}</p>
+     <button id="comprar" class="btn btn-danger" onclick="agregarProducto(${id})">Comprar Producto</button>
    </div>
  </div>
    `;
-});
+}); 
 
-
-
+let carrito=[]; 
 
 function agregarProducto(id) {
-    console.log(id);
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Producto Agregado',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    console.log(id); 
 } 
 
-
-
-/* //agregado
-const agregarProducto = (id) => {
-    const item = stockProductos.find((prod) => prod.id === id);
+const agregar = (id) => {
+    const item = agregarProducto.find((prod) => prod.id === id);
     carrito.push(item);
   
     mostrarCarrito();
-  };
-  
-
-  
-  const mostrarCarrito = () => {
-    const modalBody = document.querySelector(".modal .modal-body");
-    modalBody.innerHTML = "";
-    carrito.forEach((prod) => {
-      const { id, nombre, precio, desc, img, cantidad } = prod;
-      console.log(modalBody)
-      modalBody.innerHTML += `
-      <div class="modal-contenedor">
-        <div>
-        <img class="img-fluid img-carrito" src="${img}"/>
-        </div>
-        <div>
-        <p>Producto: ${nombre}</p>
-      <p>Precio: ${precio}</p>
-      <p>Cantidad :${cantidad}</p>
-      <button class="btn btn-danger"  onclick="eliminarProducto(${id})">Eliminar producto</button>
-        </div>
-      </div>
-      
-      `;
-    });
-
-
-
-    if (carrito.length === 0) {
-      console.log("Nada");
-      modalBody.innerHTML = `
-      <p class="text-center text-primary parrafo">¡Aun no agregaste nada!</p>
-      `;
-    } else {
-      console.log("Algo");
-    }
-    carritoContenedor.textContent = carrito.length;
-    precioTotal.innerText = carrito.reduce(
-      (acc, prod) => acc + prod.cantidad * prod.precio,
-      0
-    );
-  
-    guardarStorage();
-  };
-  
-  function guardarStorage() {
-    localStorage.setItem("carrito", JSON.stringify(carrito));
-  }
-  
-  function eliminarProducto(id) {
-    const juegoId = id;
-    carrito = carrito.filter((juego) => juego.id !== juegoId);
-    mostrarCarrito();
-  }
-  function procesarPedido() {
-    carrito.forEach((prod) => {
-      console.log(carrito)
-      const contenedorCompra = document.querySelector('#contenedorCompra')
-      console.log(contenedorCompra);
-      const { id, nombre, precio, desc, img, cantidad } = prod;
-      const div = document.createElement("div");
-      div.innerHTML += `
-            <div class="modal-contenedor">
-              <div>
-              <img class="img-fluid img-carrito" src="${img}"/>
-              </div>
-              <div>
-              <p>Producto: ${nombre}</p>
-            <p>Precio: ${precio}</p>
-            <p>Cantidad :${cantidad}</p>
-            <button class="btn btn-danger"  onclick="eliminarProducto(${id})">Eliminar producto</button>
-              </div>
-            </div>
-            
-        
-            `;
-      contenedorCompra.appendChild(div);
-    });
-  }
-
-/// fin */
-
-
-
-
-
-
-
+}; 
 
 
 
