@@ -92,7 +92,26 @@ opcionesProductos.forEach((prod)=>{
    `;
 }); 
 
+let modal=document.querySelector(".modal-body");
+
 let carrito=[]; 
+
+function mostrarCarrito() {
+    let insertar="";
+    console.log(carrito);
+    carrito.forEach((prod)=>{
+        const {img, producto,cantidad, precio}=prod //desestructuracion
+        insertar += `
+        <div>
+        <img style="width: 100px;" src="${img}"/>
+        <h3>${producto}</h3>
+        <p>Precio:$${precio}</p> 
+        <p>Cantidad:${cantidad}</p> 
+        </div>
+        `;
+    })
+    modal.innerHTML=insertar;
+}
 
 function agregarProducto(id) {
     Swal.fire({
@@ -101,16 +120,18 @@ function agregarProducto(id) {
         title: 'Producto Agregado',
         showConfirmButton: false,
         timer: 1500
-      })
+    })
     console.log(id); 
+
+    const item = opcionesProductos.find((prod) => prod.id === id);
+    carrito.push(item);
+    
+    mostrarCarrito();
 } 
 
-const agregar = (id) => {
-    const item = agregarProducto.find((prod) => prod.id === id);
-    carrito.push(item);
-  
-    mostrarCarrito();
-}; 
+ 
+
+
 
 
 
