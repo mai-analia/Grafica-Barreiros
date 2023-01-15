@@ -21,18 +21,54 @@ btnIngreso.addEventListener ("click", function () {
 
 
 //guardar datos usuario y contraseña
-//stringify: convierte en string formato json
-let usuarioJson=JSON.stringify (usuario);
-let contraseñaJson=JSON.stringify (contraseña);
+
+let user = document.getElementById("usuario"); 
+let pass= document.getElementById("contraseña");
+let btn = document.getElementById ("ingreso"); 
+
+btn.addEventListener("click", () => {
+    console.log("Registrando usuario")
+   // acá hacés los dos setItem.
+   localStorage.setItem ("usuario1", JSON.stringify(usuario.value));
+   localStorage.setItem ("contraseña1", JSON.stringify (contraseña.value));
+})
+
+
+
+
+
+
+
+
+
+
+/* function set() {
+    let usuarioJson=JSON.stringify (usuario)
+    let contraseñaJson=JSON.stringify (contraseña)
+}
+
+set (localStorage.setItem);
+
+let examplePassword= document.getElementById(exampleInputPassword1);
+let exampleUsuario = document.getElementById(exampleInputUsuario1);
 
 //almacena objeto opciones productos en el local storage
-localStorage.setItem ("usuario", "maite");
-localStorage.setItem ("contraseña", 1234);
+localStorage.getItem("usuario", exampleUsuario)
+localStorage.getItem ("contraseña", examplePassword)
+
+
+console.log(exampleInputUsuario1, exampleInputPassword1);
+ */
+
+/* 
+
 
 //recuperando el objeto opciones productos del local storage
 let datoUsuario=localStorage.getItem("usuario");
 let datoContraseña=localStorage.getItem("contraseña");
 
-/* //convierte string formato json a objeto 
-let datoParseUsuario=JSON.parse (datoUsuario);
-let datoParseContraseña=JSON.parse (datoContraseña); */
+
+    
+let user = document.querySelector(".usuario.value")
+    
+let pass = document.querySelector(".contraseña.value")  */
