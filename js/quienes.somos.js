@@ -33,6 +33,10 @@ btn.addEventListener("click", () => {
    localStorage.setItem ("contraseña1", JSON.stringify (pass.value));
 })
 
+let h2 = document.getElementById ('saludo')
+
+h2.innerText = localStorage.getItem('usuario1')
+
 
 
 
