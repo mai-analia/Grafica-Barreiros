@@ -72,7 +72,7 @@ let opcionesProductos=[
         medidas:"17x15,5x9,5",
         img: "../recursos/valijita.jpeg",
     },
-]
+] 
 
 let contenedor= document.querySelector('#contenedor'); 
 
@@ -151,6 +151,26 @@ let objetoProductosConv=JSON.parse (datosStorage);
 
 
 
+//AJAX Y FETCH
+//await
+const lista = document.querySelector("#listado");
+
+const pedirProductos = async() => {
+    const resp= await fetch("../js/data.json"); //pensar la peticion como si estuvieramos en el html
+    const data=await resp.json ();
+
+    data.forEach ((productos) =>{
+        const li =document.createElement("li")
+        li.innerHTML= `
+        <h4>${productos.producto}</h4>
+        <h7> $ ${productos.precio}</h7>
+        <p>${productos.medidas}</p>
+        `
+        lista.append(li)
+    });
+};
+
+pedirProductos();
 
 
 
