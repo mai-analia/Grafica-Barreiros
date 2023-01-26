@@ -2,5 +2,12 @@
 
 let h2 = document.getElementById ('saludo')
 
-h2.innerText = localStorage.getItem('usuario1')
+h2.innerText = localStorage.getItem('usuario1') 
+
+
+
+
+
+
+
 

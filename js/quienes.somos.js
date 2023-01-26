@@ -5,6 +5,7 @@ const contraseña=document.getElementById("contraseña")
 const form=document.getElementById("formulario")
 const btnIngreso=document.getElementById("ingreso")
 const dom=document.getElementById("infoDeIngreso")
+const btnLimpiar= document.getElementById ("limpiar")
 
 function inner() {
     dom.innerHTML= `
@@ -25,13 +26,19 @@ btnIngreso.addEventListener ("click", function () {
 let user = document.getElementById("exampleInputUsuario1"); 
 let pass= document.getElementById("exampleInputPassword1");
 let btn = document.getElementById ("ingreso"); 
+let limpiar= document.getElementById ("limpiar");
 
 btn.addEventListener("click", () => {
     console.log("Registrando usuario")
-   // acá hacés los dos setItem.
-   localStorage.setItem ("usuario1", JSON.stringify(user.value));
-   localStorage.setItem ("contraseña1", JSON.stringify (pass.value));
+   localStorage.setItem ("usuario1", JSON.stringify(user.value))
+   localStorage.setItem ("contraseña1", JSON.stringify (pass.value))
 })
+
+limpiar.addEventListener ("click", () =>{
+    localStorage.removeItem (user)
+})
+
+
 
 
 
