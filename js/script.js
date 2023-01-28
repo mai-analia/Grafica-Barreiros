@@ -11,7 +11,7 @@ h2.innerText = localStorage.getItem('usuario1')
 const lista = document.querySelector("#listado");
 
 const pedirProductos = async() => {
-    const resp= await fetch("../js/data.json"); //pensar la peticion como si estuvieramos en el html
+    const resp= await fetch("./js/data.json"); //pensar la peticion como si estuvieramos en el html
     const data=await resp.json ();
 
     data.forEach ((productos) =>{
