@@ -129,48 +129,27 @@ function agregarProducto(id) {
     mostrarCarrito();
 } 
 
- 
+
+let compra = document.getElementById ("comprar");
+
+compra.addEventListener ("click", () => {
+    Swal.fire({
+        title: 'Quieres guardar tu compra',
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: 'Guardar',
+        denyButtonText: `No guardar`,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          Swal.fire('Guardado!', '', 'success')
+        } else if (result.isDenied) {
+          Swal.fire('Los cambios no fueron guardados', '', 'info')
+        }
+      })
+})
 
 
-
-
-
-
-//json y storage productos
-let opcionesProductosStg=JSON.stringify (opcionesProductos);
-
-//almacena objeto opciones productos en el local storage
-localStorage.setItem ("objetoProductos", opcionesProductosStg);
-
-//recuperando el objeto opciones productos del local storage
-let datosStorage=localStorage.getItem("objetoProductos");
-
-let objetoProductosConv=JSON.parse (datosStorage);
-
-
-
-
-
-//AJAX Y FETCH
-//await
-const lista = document.querySelector("#listado");
-
-const pedirProductos = async() => {
-    const resp= await fetch("../js/data.json"); //pensar la peticion como si estuvieramos en el html
-    const data=await resp.json ();
-
-    data.forEach ((productos) =>{
-        const li =document.createElement("li")
-        li.innerHTML= `
-        <h4>${productos.producto}</h4>
-        <h7> $ ${productos.precio}</h7>
-        <p>${productos.medidas}</p>
-        `
-        lista.append(li)
-    });
-};
-
-pedirProductos();
 
 
 
