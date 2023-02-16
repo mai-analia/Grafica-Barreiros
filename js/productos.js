@@ -98,7 +98,6 @@ let carrito=[];
 
 function mostrarCarrito() {
     let insertar="";
-    console.log(carrito);
     carrito.forEach((prod)=>{
         const {img, producto,cantidad, precio}=prod //desestructuracion
         insertar += `
@@ -121,7 +120,6 @@ function agregarProducto(id) {
         showConfirmButton: false,
         timer: 1500
     })
-    console.log(id); 
 
     const item = opcionesProductos.find((prod) => prod.id === id);
     carrito.push(item);
@@ -140,7 +138,6 @@ compra.addEventListener ("click", () => {
         confirmButtonText: 'Guardar',
         denyButtonText: `No guardar`,
       }).then((result) => {
-        /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
           Swal.fire('Guardado!', '', 'success')
         } else if (result.isDenied) {
