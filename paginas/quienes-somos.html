@@ -5,19 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gráfica Barreiro's - Quienes somos</title>
-    <link rel="shortcut icon" href="../recursos/favicon.ico" />
+    <link rel="shortcut icon" href="../img/favicon.ico" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"/>
     <script defer src="../js/quienes.somos.js"></script> 
      <!-- CDN sweet alert -->
      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-     <!-- CDN Tostify JS -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="../index.html">
-          <img src="../recursos/logo.jpeg" width="30" height="24" />
+          <img src="../img/logo.jpeg" width="30" height="24" />
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -42,31 +40,20 @@
     </p>
     <h2>Registro</h2>
     <form id="formulario">
-      <div class="mb-3">
-        <label for="exampleInputUsuario1" id="usuario" class="form-label">Usuario</label>
-        <input type="exampleUsuario" class="form-control bg-danger bg-opacity-10 border border-danger border-start-0 rounded-end" id="exampleInputUsuario1" aria-describedby="Usuario">
-        <div class="valid-feedback"> 
-          Looks good!
-        </div>
-      <div class="mb-3">
-        <label for="exampleInputPassword1" id="contraseña" class="form-label">Contraseña</label>
-        <input type="examplePassword" class="form-control bg-danger bg-opacity-10 border border-danger border-start-0 rounded-end" id="exampleInputPassword1" required>
-      </div>
-      <div class="valid-feedback">
-        Looks good!
-      </div>
-      <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1" >
-        <label class="form-check-label" for="exampleCheck1">Recordarme</label>
-      </div>
-      <button id="ingreso" type="button" class="btn btn-danger">Registrarse ✔</button>
-      <button id="limpiar" type="button" class="btn btn-danger">Limpiar ❌ </button>
-    </form>
-    <div id="infoDeIngreso"></div>
-    <div>
-      <img src="../recursos/logo.jpeg">
-    </div>
-    <!-- script Tostify js  -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+      <label for="usuario">Usuario</label>
+      <input type="text" class="form-control bg-danger bg-opacity-10 border border-danger border-start-0 rounded-end" id="usuario" name="usuario" aria-describedby="Usuario" required>
+      
+      <label for="contrasena">Contraseña</label>
+      <input type="contraseña" class="form-control bg-danger bg-opacity-10 border border-danger border-start-0 rounded-end" id="contrasena" name="contraseña" required>
+  
+      <label id="recordarDom" class="form-check-label" for="Recordarme"></label>
+  <div>
+    <input id="ingreso"  class="btn btn-danger" value="Iniciar sesión ✔ ">
+  </div>
+  </form>
+      <div class="maps"> <!-- seccion mapa -->
+        <h2>Donde estamos:</h2>
+        <a href="https://goo.gl/maps/Jv8CsQoaPUyZVr9P9">Abrir mapa</a>
+      </div> 
   </body>
 </html>

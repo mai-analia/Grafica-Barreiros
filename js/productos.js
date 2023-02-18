@@ -6,7 +6,7 @@ let opcionesProductos=[
         cantidad: 1,
         precio: 130,
         medidas:"14x14x17",
-        img: "../recursos/box-o-pan-dulce.jpeg",
+        img: "../img/box-o-pan-dulce.jpeg",
     },
     {
         id:2,
@@ -14,7 +14,7 @@ let opcionesProductos=[
         cantidad: 1,
         precio: 155,
         medidas:"27x17x10",
-        img: "../recursos/cupcakes-sin-interior.jpeg",
+        img: "../img/cupcakes-sin-interior.jpeg",
     },
     {
         id:3,
@@ -22,7 +22,7 @@ let opcionesProductos=[
         cantidad: 1,
         precio: 70,
         medidas:"18,5x11,5x4",
-        img: "../recursos/bombonera-rosa.jpeg",
+        img: "../img/bombonera-rosa.jpeg",
     },
     {
         id:4,
@@ -30,7 +30,7 @@ let opcionesProductos=[
         cantidad: 1,
         precio: 155,
         medidas:"30x30x30",
-        img: "../recursos/torta-alta.jpeg",
+        img: "../img/torta-alta.jpeg",
     },
     {
         id:5,
@@ -38,7 +38,7 @@ let opcionesProductos=[
         cantidad: 1,
         precio: 100,
         medidas:"15,5x8,5x3",
-        img: "../recursos/bombonera-oro.jpeg",
+        img: "../img/bombonera-oro.jpeg",
     },
     {
         id:6,
@@ -46,7 +46,7 @@ let opcionesProductos=[
         cantidad: 1,
         precio: 152,
         medidas:"30x20x7,5",
-        img: "../recursos/multiuso.jpeg",
+        img: "../img/multiuso.jpeg",
     },
     {
         id:7,
@@ -54,7 +54,7 @@ let opcionesProductos=[
         cantidad: 1,
         precio: 175,
         medidas:"27x17x10",
-        img: "../recursos/cupcakes.jpeg",
+        img: "../img/cupcakes.jpeg",
     },
     {
         id:8,
@@ -62,7 +62,7 @@ let opcionesProductos=[
         cantidad: 1,
         precio: 95,
         medidas:"5x5x21",
-        img: "../recursos/macarrons.jpeg",
+        img: "../img/macarrons.jpeg",
     },
     {
         id:9,
@@ -70,7 +70,7 @@ let opcionesProductos=[
         cantidad: 1,
         precio: 140,
         medidas:"17x15,5x9,5",
-        img: "../recursos/valijita.jpeg",
+        img: "../img/valijita.jpeg",
     },
 ] 
 

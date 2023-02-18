@@ -1,151 +1,90 @@
-//quienes somos: alert de usuario registrado con exito cuando da click en ingresar 
-
-/* const usuario=document.getElementById("usuario").value
-const contraseña=document.getElementById("contraseña").value */
-
-
-
-/* const form=document.getElementById("formulario")
-const btnIngreso=document.getElementById("ingreso") */
-
-
-
-
-
-/* const dom=document.getElementById("infoDeIngreso")
-const usuario=document.getElementById("usuario").value
-const contrasena=document.getElementById("contraseña").value
-
-btnIngreso.addEventListener ('click', (e)=> {
-    e.preventDefault()
-    
-    let login = {
-        usuario: usuario.value,
-        contrasena: contrasena.value
-    }
-
-    console.log(login);
- */
-   /*  if (login){
-        dom.innerHTML= `
-        <div class="alert alert-success" role="alert">
-        <h5> Usuario registrado con éxito. \nBienvenidos a Gráfica Barreiro's!! </h5>
-        </div>
-        ` 
-    }
-    else {
-        dom.innerHTML= `
-        <div class="alert alert-success" role="alert">
-        <h5> Error. Usuario no valido! </h5>
-        </div>
-        `
-    } 
-}) */
-
-/* function inner() {
-
-if (usuario == "Maite" && contrasena == "2407" || usuario === "Joel" && contrasena == "2602") {
-    dom.innerHTML= `
-    <div class="alert alert-success" role="alert">
-    <h5> Usuario registrado con éxito. \nBienvenidos a Gráfica Barreiro's!! </h5>
-    </div>
-    `
-    }
-else {
-        dom.innerHTML= `
-        <div class="alert alert-success" role="alert">
-        <h5> Error. Usuario no valido! </h5>
-        </div>
-        `
-    }
-}
-
-
-
-
-
-btnIngreso.addEventListener ("click", function () {
-    inner()
-})
-
-
-
-function limpiar (){
-    const btnLimpiar= document.getElementById ("limpiar")
-     if (usuario || contrasena){
-        
-     }
-}
-
-btnLimpiar.addEventListener ("click", function () {
-    limpiar()
-}) */
-
-
-
-
-
-
-
-
-
-
-
-/* function inner() {
-    dom.innerHTML= `
-    <div class="alert alert-success" role="alert">
-    <h5> Usuario registrado con éxito. \nBienvenidos a Gráfica Barreiro's!! </h5>
-    </div>
-    `
-};
-
-btnIngreso.addEventListener ("click", function () {
-    inner()
-})  */
-
-
+ // --- VARIABLES ---
+ let usuario = document.getElementById("usuario"); // Input usuario
+ let contrasena = document.getElementById("contrasena"); // Input contraseña
+ let recordarDom = document.getElementById ("recordarDom"); // Recordar DOM label
  
+ const iniciarSesionButton = document.getElementById('ingreso');  // Boton "iniciar sesion"
+ 
+ 
+ // --- FUNCIONES ---
+ 
+ 
+   // Valida que los campos del formulario esten completos
+ function validarFormulario() {
+     let usuarioValue = usuario.value;
+     let contrasenaValue = contrasena.value;
+ 
+      // Validamos que los campos de texto no estén vacíos
+      if (usuarioValue == "" || contrasenaValue == "") {
+        recordarDom.innerHTML= `
+         <div class="alert alert-success" role="alert">
+         <h5> Error. Usuario no valido! </h5>
+         </div>
+         `
+         
+         Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Por favor, complete todos los campos!',
+          })
 
+       return false;  
+     } else {
+         recordarDom.innerHTML= `
+         <div class="alert alert-success" role="alert">
+         <h5> Usuario registrado con éxito. \nBienvenidos a Gráfica Barreiro's!! </h5>
+         </div>
+         `  
 
+         Swal.fire({
+            icon: 'success',
+            title: 'Registro exitoso',
+            text: 'Bienvenidos a Gráfica Barreiros!!',
+          })
 
-//guardar datos usuario y contraseña
-
-let user = document.getElementById("exampleInputUsuario1"); 
-let pass= document.getElementById("exampleInputPassword1");
-let btn = document.getElementById ("ingreso"); 
-let limpiar= document.getElementById ("limpiar");
-let dom=document.getElementById("infoDeIngreso") 
-
-btn.addEventListener("click", () => {
-   localStorage.setItem ("usuario1", JSON.stringify(user.value))
-   localStorage.setItem ("contraseña1", JSON.stringify (pass.value))
-
-    let login = {
-        user: user.value,
-        pass: pass.value
-    }
-
-    if (login){
-        dom.innerHTML= `
-        <div class="alert alert-success" role="alert">
-        <h5> Usuario registrado con éxito. \nBienvenidos a Gráfica Barreiro's!! </h5>
-        </div>
-        ` 
-    }
-    else{
-        dom.innerHTML= `
-        <div class="alert alert-success" role="alert">
-        <h5> Error. Usuario no valido! </h5>
-        </div>
-        `
-    }
-    
-
-
-    limpiar.addEventListener ("click", () =>{
-        localStorage.removeItem (login)
-    })
-})
+         // Si todos los campos están completos, se puede enviar el formulario
+         return true;
+     }
+ }
+ 
+ 
+   // Guarda el valor de los inputs en el localStorage
+ const guardarDatosEnLocalStorage = () => {
+   let usuarioValue = usuario.value;
+   let contrasenaValue = contrasena.value;
+ 
+   localStorage.setItem('usuario', usuarioValue);
+   localStorage.setItem('contrasena', contrasenaValue);
+ }
+ 
+ 
+ 
+   // Actualiza los datos del localStorage cada vez que cambie el valor de los imputs
+ usuario.addEventListener('change', () => guardarDatosEnLocalStorage()); // cambios en input usuario
+ contrasena.addEventListener('change', () => guardarDatosEnLocalStorage()); // cambios en input contraseña
+ 
+ 
+   // Crea un objeto llamado "data" y guarda los valores de Usuario y Contraseña
+const recordarme = () => {
+   let data = {
+     usuario: usuario.value,
+     contrasena: usuario.value,
+   };
+ 
+   let dataJson = JSON.stringify(data);
+ 
+   localStorage.setItem("userData", dataJson);
+ 
+   return true;
+ }
+ 
+ // ----- EJECUCION -----
+ 
+   // Ejecuta las funciones al hacer click al botton "iniciar sesion"
+ iniciarSesionButton.addEventListener('click', () =>{
+   validarFormulario();
+   recordarme();
+ })
 
 
 
